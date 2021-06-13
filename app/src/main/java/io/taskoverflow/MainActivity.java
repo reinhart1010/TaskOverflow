@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 //        Intent intent = new Intent(MainActivity.this, AddTask.class);
 //        startActivity(intent);
 
+        // ini cuman buat tes layout detail task.. hapus aja kalo udah gabutuh, tenkyuu :D
+        Intent intent = new Intent(MainActivity.this, DetailTaskActivity.class);
+        startActivity(intent);
+
         // ini untuk navigation bar
         drawerLayout = findViewById(R.id.drawerLayout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_open, R.string.navigation_close);

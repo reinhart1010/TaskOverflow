@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailTaskActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:text="Title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ImageView
+        android:id="@+id/ivTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:src="@drawable/ic_baseline_list_alt_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ImageView
+        android:id="@+id/ivCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_baseline_work_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivTitle" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Category"
+        app:layout_constraintStart_toEndOf="@+id/ivCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <ImageView
+        android:id="@+id/ivDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_baseline_event_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCategory" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Due Date"
+        app:layout_constraintStart_toEndOf="@+id/ivDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+    <ImageView
+        android:id="@+id/ivLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_baseline_edit_location_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDate" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:text="Location"
+        app:layout_constraintStart_toEndOf="@+id/ivLocation"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+    <ImageView
+        android:id="@+id/ivReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_baseline_add_alert_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLocation" />
+
+    <TextView
+        android:id="@+id/tvReminder"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Reminder"
+        app:layout_constraintStart_toEndOf="@+id/ivReminder"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+    <TextView
+        android:id="@+id/tvTitle2"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="32dp"
+        android:text="GSLC HCI"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCategory2"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="24dp"
+        android:text="Campus"
+        app:layout_constraintStart_toEndOf="@+id/tvCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
+
+    <TextView
+        android:id="@+id/tvDueDate2"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="24dp"
+        android:text="13 June 2021"
+        app:layout_constraintStart_toEndOf="@+id/tvDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategory2" />
+
+    <TextView
+        android:id="@+id/tvLocation2"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="28dp"
+        android:text="Anggrek Campus"
+        app:layout_constraintStart_toEndOf="@+id/tvLocation"
+        app:layout_constraintTop_toBottomOf="@+id/tvDueDate2" />
+
+    <TextView
+        android:id="@+id/tvReminder2"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="24dp"
+        android:text="1 Day Before"
+        app:layout_constraintStart_toEndOf="@+id/tvReminder"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation2" />
+
+    <TextView
+        android:id="@+id/tvTags"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="48dp"
+        android:text="Tags"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivReminder" />
+
+    <TextView
+        android:id="@+id/tvAttachment"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="44dp"
+        android:text="Attachment"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvTags"
+        app:layout_constraintTop_toBottomOf="@+id/tvReminder2" />
+
+    <TextView
+        android:id="@+id/tvNotes"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="100dp"
+        android:text="Notes"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTags" />
+
+    <EditText
+        android:id="@+id/etNotes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotes" />
+
+    <Button
+        android:id="@+id/btnEditTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNotes"
+        app:layout_constraintVertical_bias="0.635" />
+
+    <TextView
+        android:id="@+id/tvAttachmentDetail"
+        style="@style/CustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:text="LA03-HCI.docx"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/ivAttachment"
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachment" />
+
+    <TextView
+        android:id="@+id/tvTagsDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:text="GSLC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTags" />
+
+    <TextView
+        android:id="@+id/tvTagsDetail2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:text="HCI"
+        app:layout_constraintStart_toEndOf="@+id/tvTagsDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvTags" />
+
+    <ImageView
+        android:id="@+id/ivAttachment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_arrow_circle_down_24"
+        app:layout_constraintStart_toEndOf="@+id/tvTagsDetail2"
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachment" />
+</androidx.constraintlayout.widget.ConstraintLayout>

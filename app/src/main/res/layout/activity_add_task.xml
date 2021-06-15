@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTaskActivity"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Title"
+            style="@style/CustomStyle"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:hint="Type your title here"
+            android:background="@drawable/rounded_edittext"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="10dp"
+            style="@style/CustomStyle"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Category"
+            style="@style/CustomStyle"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edittext"
+            style="@style/CustomStyle"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tvDueDate"
+                android:layout_width="match_parent"
+                android:text="Due Date"
+                style="@style/CustomStyle"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerDueDate"
+                android:layout_width="230dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_below="@id/tvDueDate"
+                style="@style/CustomStyle"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerDueHour"
+                android:layout_width="80dp"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/rounded_edittext"
+                android:layout_below="@id/tvDueDate"
+                android:layout_toRightOf="@id/spinnerDueDate"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentRight="true"
+                style="@style/CustomStyle"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            style="@style/CustomStyle"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:hint="Pick your location here"
+            android:background="@drawable/rounded_edittext"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="10dp"
+            style="@style/CustomStyle"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reminder"
+            style="@style/CustomStyle"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerReminder"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            style="@style/CustomStyle"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginBottom="15dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tags"
+                    style="@style/CustomStyle"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="O +"
+                    android:layout_below="@id/tvTags"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_alignParentRight="true"
+                >
+
+                <TextView
+                    android:id="@+id/tvAttachment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attachment"
+                    style="@style/CustomStyle"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add link or file +"
+                    android:layout_below="@id/tvAttachment"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            style="@style/CustomStyle"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/rounded_edittext"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"
+            style="@style/CustomStyle"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_gravity="center"
+            style="@style/CustomStyle"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

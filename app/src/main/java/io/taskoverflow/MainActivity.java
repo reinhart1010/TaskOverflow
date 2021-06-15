@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
-//        // ini cuman buat tes layout detail task.. hapus aja kalo udah gabutuh, tenkyuu :D
-//        Intent intent = new Intent(MainActivity.this, DetailTaskActivity.class);
-//        startActivity(intent);
+        // ini cuman buat tes layout detail task.. hapus aja kalo udah gabutuh, tenkyuu :D
+        Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
+        startActivity(intent);
 
         // ini untuk navigation bar
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ini untuk navigation bar
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         if(actionBarDrawerToggle.onOptionsItemSelected(item)){
             return true;
         }

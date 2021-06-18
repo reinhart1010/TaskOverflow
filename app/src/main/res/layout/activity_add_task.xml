@@ -20,6 +20,7 @@
             />
 
         <EditText
+            android:id="@+id/add_task_title"
             android:layout_width="match_parent"
             android:hint="Type your title here"
             android:background="@drawable/rounded_edittext"
@@ -175,6 +176,7 @@
             />
 
         <EditText
+            android:id="@+id/add_task_notes"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@drawable/rounded_edittext"
@@ -189,6 +191,7 @@
             android:text="Add"
             android:layout_gravity="center"
             style="@style/CustomStyle"
+            android:onClick="add"
             />
 
     </LinearLayout>

@@ -1,6 +1,7 @@
 package io.taskoverflow.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
+import io.taskoverflow.DetailTaskActivity;
 import io.taskoverflow.R;
 import io.taskoverflow.database.DatabaseOpenHelper;
 import io.taskoverflow.util.Badge;
@@ -117,6 +119,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
          int i;
          // Set up cursor to move into a position
          cursor.moveToPosition(position);
+         long taskId = cursor.getLong(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_id"));
 
          holder.taskCardTitle.setText(cursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_name")));
          Long categoryId = cursor.getLong(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("category_id"));
@@ -140,7 +143,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
              }
              categoryCursor.close();
          }
-
 
          // TODO: Add due date and reminder badge
 
@@ -169,6 +171,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
              ((ImageView) view.findViewById(R.id.task_card_badge_icon)).setImageResource(badge.icon);
              ((TextView) view.findViewById(R.id.task_card_badge_label)).setText(badge.label);
          }
+
+         // Add onClick trigger
+         holder.taskCard.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(ctx, DetailTaskActivity.class);
+                 intent.putExtra("taskId", taskId);
+                 ctx.startActivity(intent);
+             }
+         });
      }
 
      @Override

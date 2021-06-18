@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
+    tools:context=".MainActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_new_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_baseline_add_24"
+        android:contentDescription="Add task"
+        android:layout_margin="16dp"
+        android:onClick="createTask" />
 
     <!-- Navigation Drawer-->
     <androidx.drawerlayout.widget.DrawerLayout
@@ -14,15 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="HardcodedText">
-
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/navigation_drawer"
-            android:background="?attr/colorOnPrimary">
-
-        </com.google.android.material.navigation.NavigationView>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -39,6 +39,14 @@
 
         </androidx.core.widget.NestedScrollView>
 
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/navigation_drawer"
+            android:background="?attr/colorOnPrimary" />
+
     </androidx.drawerlayout.widget.DrawerLayout>
 
-</LinearLayout>
+</FrameLayout>

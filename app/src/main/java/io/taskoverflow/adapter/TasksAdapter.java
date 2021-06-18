@@ -4,20 +4,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.media.Image;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Database;
 
 import com.google.android.flexbox.FlexboxLayout;
 
@@ -28,7 +24,6 @@ import java.util.Calendar;
 import java.util.regex.Pattern;
 
 import io.taskoverflow.R;
-import io.taskoverflow.Task;
 import io.taskoverflow.database.DatabaseOpenHelper;
 import io.taskoverflow.util.Badge;
 
@@ -61,7 +56,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
      public static TasksAdapter getToday(Context ctx){
          Calendar calendar = Calendar.getInstance();
          String formattedCalendar = "" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
-         return new TasksAdapter(ctx, true, "WHERE task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
+         return new TasksAdapter(ctx, true, "task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
      }
 
      public TasksAdapter(@NonNull @NotNull Context ctx){
@@ -85,7 +80,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
      public void refreshByToday(){
          Calendar calendar = Calendar.getInstance();
          String formattedCalendar = "" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
-         refresh(true, "WHERE task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
+         refresh(true, "task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
      }
 
      public void refresh(){
@@ -164,6 +159,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
          taskTagsCursor.close();
 
          // Inflate all tags into FlexboxLayout
+         holder.taskCardBadges.removeAllViews();
          for (i = 0; i < badges.size(); i++){
              Badge badge = badges.get(i);
              View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_card_badge, parent, false);

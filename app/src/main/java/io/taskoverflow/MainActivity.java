@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,13 +23,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TasksAdapter adapter;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        SQLiteDatabase db = new DatabaseOpenHelper(getApplicationContext()).getReadableDatabase();
+        // Set up navigation bar
+        drawerLayout = findViewById(R.id.drawerLayout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_open, R.string.navigation_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Initialize RecyclerView
         rv = findViewById(R.id.home_tasks_recyclerview);
@@ -37,18 +47,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
+    }
 
-        // ini cuman buat tes layout detail task.. hapus aja kalo udah gabutuh, tenkyuu :D
-        Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
-        startActivity(intent);
-
-        // ini untuk navigation bar
-        drawerLayout = findViewById(R.id.drawerLayout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_open, R.string.navigation_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+        drawerLayout.closeDrawers();
         switch (item.getItemId()){
             case R.id.Today:
                 adapter.refreshByToday();
@@ -82,5 +87,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+
+    public void createTask(View view){
+        Intent intent = new Intent (MainActivity.this, AddTaskActivity.class);
+        startActivity(intent);
     }
 }

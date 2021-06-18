@@ -36,7 +36,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
      private Context ctx;
      private SQLiteDatabase db;
      private Cursor cursor;
-     private int total;
      private boolean showCategoryBadge;
 
      private String colorRegex = "(#[0-9A-Fa-f]{6,8}|red|blue|green|black|white|gray|cyan|magenta|yellow|lightgray|darkgray)";
@@ -48,7 +47,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
          this.ctx = ctx;
          this.db = new DatabaseOpenHelper(ctx).getReadableDatabase();
          this.cursor = db.query(DatabaseOpenHelper.DATABASE_TABLE_TASKS, null, selection, selectionArgs, groupBy, having, orderBy, limit);
-         this.total = cursor.getCount();
          this.showCategoryBadge = showCategoryBadge;
      }
 
@@ -56,8 +54,30 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
          this(ctx, showCategoryBadge, null, null, null, null, null, null);
      }
 
+     public TasksAdapter(@NonNull @NotNull Context ctx, @NonNull @NotNull Long byCategory){
+         this(ctx, false, "category_id = " + byCategory, null, null, null, null, null);
+     }
+
      public TasksAdapter(@NonNull @NotNull Context ctx){
          this(ctx, true, null, null, null, null, null, null);
+     }
+     
+     public void refresh(@NonNull @NotNull Boolean showCategoryBadge, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit){
+         this.cursor = db.query(DatabaseOpenHelper.DATABASE_TABLE_TASKS, null, selection, selectionArgs, groupBy, having, orderBy, limit);
+         this.showCategoryBadge = showCategoryBadge;
+         notifyDataSetChanged();
+     }
+
+     public void refresh(@NonNull @NotNull Boolean showCategoryBadge){
+         refresh(showCategoryBadge, null, null, null, null, null, null);
+     }
+
+     public void refresh(@NonNull @NotNull Long byCategory){
+         refresh(false, "category_id = " + byCategory, null, null, null, null, null);
+     }
+
+     public void refresh(){
+         refresh(true, null, null, null, null, null, null);
      }
 
      public static class TasksViewHolder extends RecyclerView.ViewHolder {
@@ -144,5 +164,5 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
      }
 
      @Override
-     public int getItemCount() { return total; }
+     public int getItemCount() { return cursor.getCount(); }
  }

@@ -58,6 +58,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
          this(ctx, false, "category_id = " + byCategory, null, null, null, null, null);
      }
 
+     public static TasksAdapter getToday(Context ctx){
+         Calendar calendar = Calendar.getInstance();
+         String formattedCalendar = "" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
+         return new TasksAdapter(ctx, true, "WHERE task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
+     }
+
      public TasksAdapter(@NonNull @NotNull Context ctx){
          this(ctx, true, null, null, null, null, null, null);
      }
@@ -74,6 +80,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
      public void refresh(@NonNull @NotNull Long byCategory){
          refresh(false, "category_id = " + byCategory, null, null, null, null, null);
+     }
+
+     public void refreshByToday(){
+         Calendar calendar = Calendar.getInstance();
+         String formattedCalendar = "" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
+         refresh(true, "WHERE task_reminder_date LIKE '" + formattedCalendar + " %' OR task_due_date LIKE '" + formattedCalendar + " %'", null, null, null, null, null);
      }
 
      public void refresh(){

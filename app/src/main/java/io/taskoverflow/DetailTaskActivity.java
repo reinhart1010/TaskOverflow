@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -50,8 +51,11 @@ public class DetailTaskActivity extends AppCompatActivity {
 
     // Make sure that the back button is working
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+        }
         return true;
     }
 }

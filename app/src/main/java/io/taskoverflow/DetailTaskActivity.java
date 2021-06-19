@@ -31,15 +31,21 @@ public class DetailTaskActivity extends AppCompatActivity {
         taskCursor.moveToFirst();
 
         TextView title = findViewById(R.id.tvTitle2);
-        title.setText(taskCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_name")));
+        String titleDb = taskCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_name"));
+        if (titleDb != null && titleDb.length() > 0) title.setText(titleDb);
 
         TextView notes = findViewById(R.id.tvNotes);
-        title.setText(taskCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_note")));
+        String notesDb = taskCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("task_note"));
+        if (notes != null && notes.length() > 0) notes.setText(notesDb);
 
-        Cursor categoryCursor = db.query("categories", null, "category_id = " + taskCursor.getLong(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("category_id")), null, null, null, null, null);
-        categoryCursor.moveToFirst();
-        TextView category = findViewById(R.id.tvCategory2);
-        category.setText(categoryCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_CATEGORIES.get("category_id")));
+        if (!taskCursor.isNull(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("category_id"))) {
+            Long categoryId = taskCursor.getLong(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_TASKS.get("category_id"));
+            Cursor categoryCursor = db.query("categories", null, "category_id = " + categoryId, null, null, null, null, null);
+            categoryCursor.moveToFirst();
+            TextView category = findViewById(R.id.tvCategory2);
+            category.setText(categoryCursor.getString(DatabaseOpenHelper.DATABASE_COLUMN_INDEX_CATEGORIES.get("category_name")));
+            categoryCursor.close();
+        }
     }
 
     // Make sure that the back button is working

@@ -115,7 +115,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                 "task_due_date TEXT," +
                 "task_reminder_date TEXT," +
                 "task_location_lat REAL," +
-                "task_location_lng REAL" +
+                "task_location_lng REAL," +
                 "task_location_name TEXT," +
                 "task_location_url TEXT," +
                 "task_note TEXT," +

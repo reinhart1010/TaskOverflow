@@ -3,10 +3,12 @@ package io.taskoverflow;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -57,5 +59,13 @@ public class DetailTaskActivity extends AppCompatActivity {
                 finish();
         }
         return true;
+    }
+
+    public void delete(View view){
+        db.delete("tasks", "task_id = " + taskId, null);
+        // Clear back stack, force RecyclerView update
+        Intent intent = new Intent(DetailTaskActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

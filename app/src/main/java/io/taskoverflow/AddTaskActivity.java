@@ -86,7 +86,7 @@ public class AddTaskActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-    
+
     // Make sure that the back button is working
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

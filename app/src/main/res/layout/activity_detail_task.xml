@@ -155,7 +155,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="24dp"
-        android:text="13 June 2021"
+        android:text="None"
         app:layout_constraintStart_toEndOf="@+id/tvDate"
         app:layout_constraintTop_toBottomOf="@+id/tvCategory2" />
 
@@ -167,7 +167,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="28dp"
-        android:text="Anggrek Campus"
+        android:text="None"
         app:layout_constraintStart_toEndOf="@+id/tvLocation"
         app:layout_constraintTop_toBottomOf="@+id/tvDueDate2" />
 
@@ -179,7 +179,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="24dp"
-        android:text="1 Day Before"
+        android:text="None"
         app:layout_constraintStart_toEndOf="@+id/tvReminder"
         app:layout_constraintTop_toBottomOf="@+id/tvLocation2" />
 
@@ -239,10 +239,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tvNotes" />
 
     <Button
-        android:id="@+id/btnEditTask"
+        android:id="@+id/btnDelete"
+        android:onClick="delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Task"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -258,7 +259,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="16dp"
-        android:text="LA03-HCI.docx"
+        android:text="None"
         android:textSize="14dp"
         app:layout_constraintStart_toEndOf="@+id/ivAttachment"
         app:layout_constraintTop_toBottomOf="@+id/tvAttachment" />
@@ -270,7 +271,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
-        android:text="GSLC"
+        android:text="None"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTags" />
 
@@ -281,7 +282,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="16dp"
-        android:text="HCI"
+        android:text="None"
         app:layout_constraintStart_toEndOf="@+id/tvTagsDetail"
         app:layout_constraintTop_toBottomOf="@+id/tvTags" />
 
